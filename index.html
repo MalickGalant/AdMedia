@@ -18,17 +18,24 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdMedia Display</title>
     <meta name="ad.size" content="width=300,height=250">
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     <script type="text/javascript">
-      var clickTag = "http://www.google.com";
+      var clickTag = "http://malickgalant.github.io/AdMedia";
    ​</script>
     
     
   </head>
   <body>
    <div align="center">
+    <!-- This img tag is invisible. It makes the browser send a request to the VIEW_URL. -->
+<img src="%%VIEW_URL_UNESC%%" style="display:none">
+
+<!-- This img tag shows the real ad.-->
+<img src="[%Imagefile%]" border="0">
+
 
    <script type="text/javascript">
 document.write('<sc'+'ript type="text/javascript" src="http://www.3rdparty.com/?dfpAdUnit=%%ADUNIT%%"></scr'+'ipt>');
