@@ -20,8 +20,27 @@ HTML
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Anchor Ad Example</title>
+    <title>AdMedia Display</title>
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+      window.googletag = window.googletag || {cmd: []};
+      var adSlot1, adSlot2;
+
+      googletag.cmd.push(function() {
+        // Define ad slot 1.
+        adSlot1 = googletag
+            .defineSlot('/6355419/Travel/Europe/France',[728, 90], 'banner-ad-1')
+            .addService(googletag.pubads());
+        // Define and configure ad slot 2.
+        adSlot2 = googletag
+            .defineSlot('/6355419/Travel/Europe/France',[728, 90], 'banner-ad-2')
+            .setTargeting('test', 'privacy')
+            .addService(googletag.pubads());
+        // Enable SRA and services.
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    </script>
     <script>
       window.googletag = window.googletag || {cmd: []};
 
@@ -56,7 +75,7 @@ HTML
               .addService(googletag.pubads());
 
           document.getElementById('status').innerText =
-            'Anchor ad is initialized. Scroll page to activate.';
+            'Scroll page to activate.';
         }
 
         // Define static ad slots.
@@ -71,11 +90,24 @@ HTML
     </script>
   </head>
   <body>
+
+
     <div id="page-content" style="height: 900vh;">
-      <h1 id="status">Anchor ads are not supported on this page.</h1>
+      <h1 id="status">AdMedia Display</h1>
+
+
+      <div id="banner-ad-1" style="width: 728px; height: 90px;"></div>
+      <div id="banner-ad-2" style="width: 728px; height: 90px;"></div>
+    
       <div id="static-ad-1" style="width: 100px; height: 100px;"></div>
     </div>
     <script>
+        googletag.cmd.push(function() {
+          // This call to display requests both ad slots with all
+          // configured targeting.
+          googletag.display(adSlot1);
+        });
+    
         googletag.cmd.push(function() {
           // Ensure the first call to display comes after static ad slot
           // divs are defined.
